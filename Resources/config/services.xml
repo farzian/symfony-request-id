@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="snowflake.requestId.listener.requestIdListener" class="SnowFlake\RequestIdBundle\EventListener\RequestIdListener">
+            <tag name="kernel.event_listener" event="kernel.request" method="onEarlyKernelRequest" priority="255"/>
+            <argument type="string">%snow_flake_request_id.header_name%</argument>
+            <argument type="string">%snow_flake_request_id.prefix%</argument>
+            <argument type="string">%snow_flake_request_id.override_existing%</argument>
+        </service>
+    </services>
+</container>
