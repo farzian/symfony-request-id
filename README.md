@@ -66,6 +66,14 @@ A custom string which will be added to the beginning of the generated request ID
 To force to override the possible existing header with the same name as configured for this request ID header. For example by enabling a special module on Apache web server, you might already have a request ID header with the same configured name. Default is **false**.
 
 
+So the default configs look like:
+
+    snow_flake_request_id:
+
+        header_name: 'X-Request-ID'
+        prefix: ''
+        override_existing: false
+
 
 # Available parameters
 
